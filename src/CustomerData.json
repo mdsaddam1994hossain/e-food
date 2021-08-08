@@ -1,0 +1,21 @@
+[
+    {
+       "image" : "./image/jhone.png",
+       "name" : "John Doe",
+        "contact" : [
+                     {
+                         "img" : "./image/callImg.png",
+                         "media" : "+00 123 4567 890"
+                     },
+                     {
+                        "img" : "./image/emailImg.png",
+                        "media" : "support@foode.com"
+                    },
+                    {
+                        "img" : "./image/whatsapp.png",
+                        "media" : "chart on whatsApp"
+                    }
+
+                   ]
+    }
+]

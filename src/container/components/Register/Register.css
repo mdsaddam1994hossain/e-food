@@ -1,0 +1,53 @@
+
+.reg-title{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 43px;
+    color: #2D2D2D;
+    margin-top: 50px;
+}
+
+.register-button{
+
+    width: 100%;
+    height: 40px;
+    background-color: #2FDBBC;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 2px solid #2FDBBC;
+    margin-top: 30px;
+}
+
+.question{
+    color: #A3A3A3;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+}
+
+.ant-input-affix-wrapper > input.ant-input{
+    background: none;
+   
+}
+
+.ant-input-affix-wrapper{
+    border:none;
+    position:relative;
+    bottom: 5px;
+}
+
+.ant-input-password-icon{
+    color:#2FDBBC;
+}
+
+.ant-input{
+    border:none;
+}

@@ -1,0 +1,171 @@
+.catagoris{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    list-style: 15px;
+    color: #2D2D2D;
+}
+
+.view-all{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    list-style: 15px;
+    color: #2FDBBC;
+}
+
+.break-style{
+    flex-grow: 3;
+    height: 40px;
+    background:  #F4F4F4;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2D2D2D;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+   
+}
+
+.fast-style{
+    flex-grow: 3;
+    height: 40px;
+    background:  #F4F4F4;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2D2D2D;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+}
+
+.lun-style{
+    flex-grow: 2;
+    height: 40px;
+    background:  #F4F4F4;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2D2D2D;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+}
+
+.sou-india{
+    width: 40%;
+    height: 40px;
+    background:  #F4F4F4;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2D2D2D;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+}
+
+.nor-india{
+    width: 40%;
+    height: 40px;
+    background:  #F4F4F4;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2D2D2D;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+}
+
+.dinner{
+    flex-grow: 1;
+    height: 40px;
+    background:  #F4F4F4;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2D2D2D;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+}
+
+/* search 3 */
+
+.lunch-button{
+    width: 33.33%;
+    height: 40px;
+    background:  #2FDBBC;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #FFFFFF;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+}
+
+.breakfast-button{
+    width: 33.33%;
+    height: 40px;
+    background:  #F4F4F4;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2D2D2D;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+
+}
+.fastfood-button{
+    width: 33.33%;
+    height: 40px;
+    background:  #F4F4F4;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2D2D2D;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    margin:5px;
+}
+
+.you-style{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #A3A3A3;
+
+}
+
+.sorted-style{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #F99928;
+    font-style: normal;
+}

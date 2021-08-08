@@ -1,0 +1,44 @@
+
+.e-food{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 812px;
+   
+    
+}
+
+.food{
+    color:#2D2D2D;
+    font-size: 36px;
+    line-height: 43.2px;
+    font-weight: normal;
+    font-style: normal;
+    
+}
+.botton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -83px;
+}
+
+.rkd{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    font-style: normal;
+    color: #A3A3A3;
+    margin-bottom: 50px;
+}
+.underline{
+    
+    width: 134px;
+    height: 5px;
+    background: #2D2D2D;
+    border-radius: 100px;
+    margin-bottom: 10px;
+}
+

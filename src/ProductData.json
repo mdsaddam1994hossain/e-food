@@ -1,0 +1,18 @@
+
+[
+    {
+        "img" : "./image/egg.png",
+        "name": "Egg Salad",
+        "price" : "5.00",
+        "subImage" : "./image/boxed.png"
+    },
+    {
+        "img" : "./image/fast.png",
+        "name": "Grilled Salmon",
+        "price" : "15.00",
+        "subImage" : "./image/boxed.png"
+    }
+    
+]
+
+

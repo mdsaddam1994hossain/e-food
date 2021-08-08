@@ -1,0 +1,63 @@
+
+.getstart{
+    color:#2D2D2D;
+    font-size: 36px;
+    line-height: 43px;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 60px;
+}
+
+.description{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    font-style: normal;
+    color: #2D2D2D;
+    margin-top: -20px;
+}
+
+.login{
+    width: 100%;
+    height: 40px;
+    background-color: #2FDBBC;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 380px;
+}
+
+.register{
+
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #2FDBBC;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 2px solid #2FDBBC;
+    margin-top: 30px;
+}
+
+
+
+.ant-modal-content {
+    max-height: 700px;
+    height: 800px;
+   
+    /*overflow-y: auto;*/
+    /*overflow-x: auto;*/
+    }
+
+    .ant-modal-footer{
+      border : none
+    }
