@@ -3,13 +3,13 @@ import './CheckOut.css';
 import { Row, Col } from 'antd';
 
 
-const CheckOut = () => {
+const CheckOut = (props) => {
     return (
         <div className="common-top-margin">
 
             <Row>
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }}>
-                    <img src="./image/vector8.png" alt="error" />
+                    <img src="./image/vector8.png" alt="error"  onClick={()=>props.setDisplay(true)} style={{cursor:"pointer"}}/>
                 </Col>
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{marginTop:"40px"}}>
                     <p className="checkout">CHECKOUT</p>
@@ -27,7 +27,7 @@ const CheckOut = () => {
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{marginTop:"",display:"flex",justifyContent:"space-between"}}>
                     <p className="home-style"> HOME </p>
-                    <p className="change"> Change </p>
+                    <p className="change" onClick={()=> props.setDisplay(false)}> Change </p>
                 </Col>
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{marginTop:"40px"}}>

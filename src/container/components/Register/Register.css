@@ -22,6 +22,7 @@
     text-transform: uppercase;
     border: 2px solid #2FDBBC;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 .question{

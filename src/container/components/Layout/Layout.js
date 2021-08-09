@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 import { TabBar } from 'antd-mobile';
 import { Row, Col } from 'antd';
 import Home from './../BootomTabPages/Home';
@@ -6,6 +6,10 @@ import Search from '../Search/Search';
 import Profile from '../Profile/Profile';
 import Busket from './../CartAndBusket/Busket';
 import Liked from './../Liked/Liked';
+import CheckOut from './../CheckOut/CheckOut';
+import Cart from './../CartAndBusket/Cart';
+import MyAddress from './../CheckOut/MyAddress';
+import AccountAndProfile from './../Profile/AccountAndProfile';
 
 
 const Layout = () => {
@@ -14,6 +18,9 @@ const Layout = () => {
     const [fullScreen, setFullScreen] = useState(true)
     const [hidden, setHidden] = useState(false)
 
+    const [display,setDisplay] = useState(true);
+    const [displayAddress,setDisplayAddress] = useState(true);
+    
 
 
 
@@ -54,7 +61,9 @@ const Layout = () => {
                                 }}
                                 data-seed="logId"
                             >
-                               <Home  />
+                               
+                               {display ? <Home  setDisplay={setDisplay}  /> :  <Cart setDisplay={setDisplay} />}
+                               
                             </TabBar.Item>
 
                             <TabBar.Item
@@ -110,7 +119,13 @@ const Layout = () => {
                                 }}
                                 data-seed="logId1"
                             >
-                               <Busket />
+
+
+                               
+                                {display ? <Busket  setDisplay={setDisplay}/> : <CheckOut  setDisplay={setDisplay}/>   }
+                              
+                                 
+                              
                             </TabBar.Item>
 
                             <TabBar.Item
@@ -166,7 +181,8 @@ const Layout = () => {
                                 }}
                                 data-seed="logId1"
                             >
-                               <Profile />
+                              
+                               {display ? <Profile  setDisplay={setDisplay}/> : <AccountAndProfile  setDisplay={setDisplay}/>   }
                             </TabBar.Item>
 
                         </TabBar>

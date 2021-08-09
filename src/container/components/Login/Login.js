@@ -62,7 +62,7 @@ const Login = (props) => {
                     </div>
                 </Col>
                 <Col xs={{ offset: 2, span: 20 }} style={{ marginTop: "8px", textAlign: "right" }} >
-                    <p className="question" onClick={showForgotModal}>Forgot Password</p>
+                    <p className="question" onClick={showForgotModal} style={{cursor:"pointer"}}>Forgot Password</p>
                 </Col>
 
                 <Col xs={{ offset: 2, span: 20 }} style={{ marginTop: "20px" }} >
@@ -73,7 +73,7 @@ const Login = (props) => {
                     </Link>
                 </Col>
                 <Col xs={{ offset: 2, span: 20 }} style={{ marginTop: "30px", textAlign: "center" }} >
-                    <p className="question">Do't have an account? <spam style={{ color: "#F99928" }} onClick={showModal}> Register </spam> </p>
+                    <p className="question">Do't have an account? <spam style={{ color: "#F99928",cursor:"pointer" }} onClick={showModal}> Register </spam> </p>
                 </Col>
 
             </Row>

@@ -45,6 +45,7 @@ import AddNewCard from './components/CheckOut/AddNewCard';
 
 
 
+
 const MyRoute = () => {
     return (
         <div>
@@ -87,6 +88,7 @@ const MyRoute = () => {
             <Route  path='/addNewAddress' component={AddNewAddress} />
             <Route  path='/paymentMethod' component={PaymentMethod} />
             <Route  path='/addNewCard' component={AddNewCard} />
+           
             
            
             

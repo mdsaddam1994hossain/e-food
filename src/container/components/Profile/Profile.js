@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import CustomerData from '../../../CustomerData.json'
 import { Link } from 'react-router-dom';
 
-const Profile = () => {
+const Profile = (props) => {
 
 
     return (
@@ -26,7 +26,7 @@ const Profile = () => {
                     <div className="sub-profile">
                         <p style={{ flexGrow: "1" }}> <img src="./image/vector9.png" /></p>
                         <p className="account-profile">Account and Profile </p>
-                        <p style={{ flexGrow: "1", textAlign: "right" }}><Link to="/accountAndProfile"> <img src="./image/vector12.png" /> </Link></p>
+                        <p style={{ flexGrow: "1", textAlign: "right" }}> <img src="./image/vector12.png" style={{cursor:"pointer"}} onClick={()=> props.setDisplay(false)} /></p>
                     </div>
 
                     <div className="sub-profile">

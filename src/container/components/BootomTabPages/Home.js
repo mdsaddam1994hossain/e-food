@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './BootmTab.css'
 import { Row, Col, Card, Input, Space } from 'antd';
 import ProductData from '../../../ProductData.json'
 import CompanyData from '../../../CompanyData.json'
+import Cart from '../CartAndBusket/Cart';
+import { Link } from 'react-router-dom';
+
 
 const { Meta } = Card;
 
-const HelloJhon = () => {
+const Home = (props) => {
+
+
+
+    const [selectedProduct, setSelectedProduct] = useState({});
+
+    console.log(selectedProduct,'////////////')
+
+
     return (
-        <div className="common-top-margin" style={{background:"#F7F7F7"}}>
+        <div className="common-top-margin" style={{ background: "#F7F7F7" }}>
+
             <Row>
-                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8}} >
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} >
                     <div className="hello-style">
                         <p className="jhone">Hello!<span style={{ color: "#2FDBBC" }}> Jhon</span> </p>
                         <div style={{ display: "flex", marginTop: "2px" }}>
@@ -59,19 +71,27 @@ const HelloJhon = () => {
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "20px" }} >
 
-                    <Row >
+
+
+
+
+                    <Row>
+
 
 
                         {ProductData.map((product, index) => {
                             return (
 
-                                <Col xs={{ span: 12 }} style={{  marginTop: " 10px" }}  >
+                                <Col span={12} style={{}}>
                                     <Card
+                                        onClick={() => props.setDisplay(false)}
+                                        key={index}
                                         hoverable
-                                        style={{ width: "95%", borderRadius: "10px",display:"flex",flexDirection:"column",justifyContent:"space-between"  }}
-                                        cover={<img alt="example" src={product.img} />}
+                                        style={{ width: "100%", borderRadius: "10px" }}
+                                        cover={<img alt="example" src={product.img} height="150px" style={{ borderRadius: "10px" }} />}
 
                                     >
+                                        <img src="./image/loveVector.png" className="loveVector" />
 
                                         <Meta title={product.name} style={{ position: "relative", top: "-15px", left: "-10px", fontFamily: "Poppins", color: "#2D2D2D", fontSize: "14px", lineHeight: "21px" }} />
 
@@ -82,20 +102,20 @@ const HelloJhon = () => {
                                     </Card>
 
                                 </Col>
-
-
                             )
                         })}
 
-
                     </Row>
+
+
+
                 </Col>
 
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "25px" }}>
                     <div className="reco-style">
                         <p>RESTAURANTS</p>
-                        
+
                     </div>
                 </Col>
 
@@ -105,9 +125,9 @@ const HelloJhon = () => {
                             CompanyData.map((com) => {
                                 return (
                                     <Col xs={{ span: 6 }} style={{ width: "100%", marginTop: " 20px" }}>
-                                      <div style={{width:"80px",height:"80px",borderRadius:"20px",background:"white",display:"flex",justifyContent:"center",alignSelf:"center"}}>
-                                          <img src={com.logo}  />
-                                      </div>
+                                        <div style={{ width: "80px", height: "80px", borderRadius: "20px", background: "white", display: "flex", justifyContent: "center", alignSelf: "center" }}>
+                                            <img src={com.logo} />
+                                        </div>
 
                                     </Col>
 
@@ -128,4 +148,4 @@ const HelloJhon = () => {
     );
 };
 
-export default HelloJhon;
+export default Home;

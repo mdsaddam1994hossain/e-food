@@ -30,6 +30,7 @@
     font-size: 18px;
     text-transform: uppercase;
     margin-top: 380px;
+    cursor: pointer;
 }
 
 .register{
@@ -46,6 +47,7 @@
     text-transform: uppercase;
     border: 2px solid #2FDBBC;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 

@@ -3,13 +3,13 @@ import './Profile.css'
 import { Row, Col, Input } from 'antd';
 import { Link,Redirect } from 'react-router-dom';
 
-const AccountAndProfile = () => {
+const AccountAndProfile = (props) => {
     return (
         <div className="common-top-margin">
 
             <Row>
                 <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }}>
-                  {/* <Redirect to="layout" ></Redirect> */}  <img src="./image/vector8.png" /> 
+                   <img src="./image/vector8.png" onClick={()=> props.setDisplay(true)} style={{cursor:"pointer"}} /> 
                 </Col>
                 <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "50px" }}>
                     <p className="acc-and-pro"> ACCOUNT AND PROFILE</p>

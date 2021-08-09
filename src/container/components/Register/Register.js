@@ -72,7 +72,7 @@ const Register = (props) => {
                 </Col>
 
                 <Col xs={{ offset: 2, span: 20 }} style={{ marginTop: "30px", textAlign: "center" }} >
-                    <p className="question">Already have an account? <spam style={{ color: "#F99928" }} onClick={showModal}> Login</spam></p>
+                    <p className="question">Already have an account? <spam style={{ color: "#F99928",cursor:"pointer" }} onClick={showModal}> Login</spam></p>
                 </Col>
 
             </Row>
