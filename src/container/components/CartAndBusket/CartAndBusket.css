@@ -58,22 +58,25 @@
 }
 
 .increment{
-    width: 12.83px;
-    height: 1.83px;
+  
+   
     flex-grow: 2;
     font-family: 'Poppins';
     font-weight: 500;
     font-size: 25px;
+    cursor: pointer;
 
 }
 
 .decrement{
-    width: 12.83px;
-    height: 1.83px;
+   
+    line-height: 40px;
     flex-grow: 2;
     font-family: 'Poppins';
     font-weight: 500;
     font-size: 25px;
+    cursor: pointer;
+  
 }
 
 .basket{

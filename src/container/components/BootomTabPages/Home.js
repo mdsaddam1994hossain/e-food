@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 import './BootmTab.css'
 import { Row, Col, Card, Input, Space } from 'antd';
-import ProductData from '../../../ProductData.json'
+import ProductData from '../../../ProductData'
 import CompanyData from '../../../CompanyData.json'
-import Cart from '../CartAndBusket/Cart';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
 
 const { Meta } = Card;
 
+
+
 const Home = (props) => {
 
+    const history = useHistory();
+    const handaleClick = (data) =>{
+        history.push({
+            pathname : '/product',
+            state  : data
+        });
+    }
 
+const {products} = ProductData;
 
     const [selectedProduct, setSelectedProduct] = useState({});
 
-    console.log(selectedProduct,'////////////')
-
+    console.log("selectedproduct===", selectedProduct)
 
     return (
         <div className="common-top-margin" style={{ background: "#F7F7F7" }}>
@@ -70,43 +79,41 @@ const Home = (props) => {
                 </Col>
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "20px" }} >
+                   
+                        <Row>
 
+                            {products.map((product, index) => {
+                                return (
+                                   
+                                    <Col span={12 } >
+                                        {console.log(product.img,'///////')}
+                                         {/* <Link to={`/card?id=${product.id}&name=${product.name}&price=${product.price}&imgLink=${product.img}`}> */}
+                                        
+                                        <Card
+                                            onClick ={()=>handaleClick(product)}
+                                            key={index}
+                                            hoverable
+                                            style={{ width: "100%", borderRadius: "10px" }}
+                                            cover={<img alt="example" src={product.img} height="150px" style={{ borderRadius: "10px" }} />}
 
+                                        >
+                                            <img src="./image/loveVector.png" className="loveVector" />
 
+                                            <Meta title={product.name} style={{ position: "relative", top: "-15px", left: "-10px", fontFamily: "Poppins", color: "#2D2D2D", fontSize: "14px", lineHeight: "21px" }} />
 
+                                            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                                                <p className="price-style">${product.price}</p>
+                                                <img src={product.subImage} style={{ width: "22px", height: "22px", marginRight: "-10px" }} />
+                                            </div>
+                                        </Card>
+                                        {/* </Link> */}
+                                    </Col>
+                                    
+                                )
+                            })}
 
-                    <Row>
-
-
-
-                        {ProductData.map((product, index) => {
-                            return (
-
-                                <Col span={12} style={{}}>
-                                    <Card
-                                        onClick={() => props.setDisplay(false)}
-                                        key={index}
-                                        hoverable
-                                        style={{ width: "100%", borderRadius: "10px" }}
-                                        cover={<img alt="example" src={product.img} height="150px" style={{ borderRadius: "10px" }} />}
-
-                                    >
-                                        <img src="./image/loveVector.png" className="loveVector" />
-
-                                        <Meta title={product.name} style={{ position: "relative", top: "-15px", left: "-10px", fontFamily: "Poppins", color: "#2D2D2D", fontSize: "14px", lineHeight: "21px" }} />
-
-                                        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-                                            <p className="price-style">${product.price}</p>
-                                            <img src={product.subImage} style={{ width: "22px", height: "22px", marginRight: "-10px" }} />
-                                        </div>
-                                    </Card>
-
-                                </Col>
-                            )
-                        })}
-
-                    </Row>
-
+                        </Row>
+                   
 
 
                 </Col>

@@ -7,25 +7,54 @@ import Profile from '../Profile/Profile';
 import Busket from './../CartAndBusket/Busket';
 import Liked from './../Liked/Liked';
 import CheckOut from './../CheckOut/CheckOut';
-import Cart from './../CartAndBusket/Cart';
-import MyAddress from './../CheckOut/MyAddress';
+import Card from '../CartAndBusket/Card';
 import AccountAndProfile from './../Profile/AccountAndProfile';
+
+import {
+    BrowserView,
+    MobileView,
+    isBrowser,
+    isMobile
+  } from "react-device-detect";
+
+
+
+
 
 
 const Layout = () => {
 
+
+// console.log(isMobile,'/////////')
+
     const [selectedTab, setSelectedTab] = useState(null)
     const [fullScreen, setFullScreen] = useState(true)
     const [hidden, setHidden] = useState(false)
-
     const [display,setDisplay] = useState(true);
-    const [displayAddress,setDisplayAddress] = useState(true);
     
+//    function bottomtab(){
+//     return(
+//         <div>
+//             { mobile ? setHidden(true) : setHidden(false)  }
+//             <Home />
+//         </div> 
+//     ) 
+//   }
 
 
 
+    //   const  renderContent = () => {
+    //         if (isMobile) {
+    //             return <div> <Home /></div>
+    //         }
+    //         return <div> <Profile /> </div>
+    //     }
+
+   
 
     return (
+
+        
         <div className="common-top-margin">
            
 
@@ -62,8 +91,8 @@ const Layout = () => {
                                 data-seed="logId"
                             >
                                
-                               {display ? <Home  setDisplay={setDisplay}  /> :  <Cart setDisplay={setDisplay} />}
-                               
+                             <Home  /> 
+                            {/* {bottomtab()} */}
                             </TabBar.Item>
 
                             <TabBar.Item
@@ -124,7 +153,7 @@ const Layout = () => {
                                
                                 {display ? <Busket  setDisplay={setDisplay}/> : <CheckOut  setDisplay={setDisplay}/>   }
                               
-                                 
+                                 {/* <MyAddress /> */}
                               
                             </TabBar.Item>
 

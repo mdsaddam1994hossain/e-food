@@ -1,7 +1,7 @@
 import React from 'react';
 import './Search.css'
 import { Row, Col, Input, Card } from 'antd';
-import ProductData from '../../../ProductData.json'
+import ProductData from '../../../ProductData'
 
 const { Meta } = Card;
 

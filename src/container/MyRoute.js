@@ -13,7 +13,7 @@ import ResetPassword from './components/Login/ResetPassword';
 import Address from './components/Address/Address';
 import Payment from './components/Address/Payment';
 import Home from './components/BootomTabPages/Home';
-import Cart from './components/CartAndBusket/Cart';
+import Card from './components/CartAndBusket/Card';
 import Busket from './components/CartAndBusket/Busket';
 import Liked from './components/Liked/Liked';
 import Search from './components/Search/Search';
@@ -38,6 +38,8 @@ import MyAddress from './components/CheckOut/MyAddress';
 import AddNewAddress from './components/CheckOut/AddNewAddress';
 import PaymentMethod from './components/CheckOut/PaymentMethod';
 import AddNewCard from './components/CheckOut/AddNewCard';
+import Test from './components/CartAndBusket/Test';
+
 
 
 
@@ -63,7 +65,7 @@ const MyRoute = () => {
             <Route  path='/address' component={Address}  />
             <Route  path='/payment' component={Payment}  />
             <Route  path='/home' component={Home}  />
-            <Route  path='/cart' component={Cart}  />
+            <Route  path='/product' component={Card}  />
             <Route  path='/busket' component={Busket}  />
             <Route  path='/liked' component={Liked}  />
             <Route  path='/search' component={Search}  />
@@ -88,6 +90,9 @@ const MyRoute = () => {
             <Route  path='/addNewAddress' component={AddNewAddress} />
             <Route  path='/paymentMethod' component={PaymentMethod} />
             <Route  path='/addNewCard' component={AddNewCard} />
+
+            {/* <Route path="/product" component={Test} /> */}
+            
            
             
            
