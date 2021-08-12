@@ -2,11 +2,17 @@ import React from 'react';
 import './CartAndBusket.css'
 import { Row, Col } from 'antd';
 import {Link} from 'react-router-dom'
+import useGlobal  from '../../../store'
 
 
 const Busket = (props) => {
+    const [globalState, globalActions] = useGlobal();
+
+    console.log(globalState.total,'total')
+
     return (
         <div className="common-top-margin">
+
             <Row>
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }}>
                     <p className="basket">BASKET</p>

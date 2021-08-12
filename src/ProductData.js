@@ -6,7 +6,7 @@ const ProductData ={
             "imgdetails" : "./image/pizza.png",
             "imgdetails2" :"./image/egg.png",
             "name": "Egg Salad",
-            "price" : "5.00",
+            "price" : 5.00,
             "subImage" : "./image/boxed.png",
             "age" : "20 years"
         },
@@ -15,7 +15,7 @@ const ProductData ={
             "imgdetails" :"./image/egg.png",
             "imgdetails2" :"./image/pizza.png",
             "name": "Grilled Salmon",
-            "price" : "15.00",
+            "price" : 15.00,
             "subImage" : "./image/boxed.png",
             "age" : "25 years"
         }

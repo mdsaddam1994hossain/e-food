@@ -4,28 +4,45 @@ import { Row, Col, Carousel } from 'antd';
 import ProductData from '../../../ProductData'
 import { useParams, Link } from 'react-router-dom';
 
-
+// import useGlobal  from '../../../store'
 
 
 const Card = (props) => {
 
+
     const productDetails = props.location.state || {};
     const [numberOfProduct, setNumberOfProduct] = useState(1);
-    const [subTotalPrice, setSubTotalPrice] = useState(productDetails.price);
+    const [subTotalPrice, setSubTotalPrice] = useState(parseFloat(productDetails.price));
+    // const [globalState, globalActions] = useGlobal();
+    const [basketItems, setBasketItems] = useState([]);
 
-    console.log(productDetails.img)
 
     const handalIncreemnt = () => {
-        setNumberOfProduct((prev) => prev + 1);
-
-
+        setNumberOfProduct((prev) => prev + 1)
+        if (subTotalPrice) {
+            let subtotal = subTotalPrice + parseFloat(productDetails.price)
+            setSubTotalPrice(subtotal)
+            // globalActions.setTotal(subtotal)
+        }
     }
 
     const handalDecreemnt = () => {
         setNumberOfProduct(numberOfProduct - 1);
 
-
+        if (subTotalPrice) {
+            let subtotal = subTotalPrice - parseFloat(productDetails.price)
+            setSubTotalPrice(subtotal)
+            // globalActions.setTotal(subtotal)
+        }
     }
+
+    // Add to basket button function
+
+    const onAdd = (product) =>{
+        console.log(product.id,product.name,product.price,product.img);
+    }
+
+   
 
     return (
 
@@ -34,26 +51,36 @@ const Card = (props) => {
 
                 <Col xs={{ span: 24 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }}>
                     <Carousel >
+                        <div style={{ width: "100%" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", margin: "0 30px", marginTop: "30px" }}>
+                                <Link to='/layout'>     <img src="./image/backBoxed.png" style={{ cursor: "pointer", position: "absolute", zIndex: "9999" }} /></Link>
+                                <img src="./image/optionBoxed.png" style={{ position: "relative", display: "flex", justifyContent: "right", zIndex: "9999", }} />
+                            </div>
+                            <img src={productDetails.imgdetails2} style={{ width: "100%", marginTop: "-55px", height: "350px", zIndex: "-1" }} />
+                        </div>
 
+                        <div style={{ width: "100%" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", margin: "0 30px", marginTop: "30px" }}>
+                                <Link to='/layout'>     <img src="./image/backBoxed.png" style={{ cursor: "pointer", position: "absolute", zIndex: "9999" }} /></Link>
+                                <img src="./image/optionBoxed.png" style={{ position: "relative", display: "flex", justifyContent: "right", zIndex: "9999", }} />
+                            </div>
+                            <img src={productDetails.imgdetails} style={{ width: "100%", marginTop: "-55px", height: "350px", zIndex: "-1" }} />
+                        </div>
 
-                        <img src={productDetails.img} width="100%" height="360px" style={{ position: "absolute", top: "0px", }} />
-                        <img src={productDetails.imgdetails} width="100%" height="360px" style={{ position: "absolute", top: "0px", }} />
-                        <img src={productDetails.imgdetails2} width="100%" height="360px" style={{ position: "absolute", top: "0px", }} />
-
+                        <div style={{ width: "100%" }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", margin: "0 30px", marginTop: "30px" }}>
+                                <Link to='/layout'>     <img src="./image/backBoxed.png" style={{ cursor: "pointer", position: "absolute", zIndex: "9999" }} /></Link>
+                                <img src="./image/optionBoxed.png" style={{ position: "relative", display: "flex", justifyContent: "right", zIndex: "9999", }} />
+                            </div>
+                            <img src={productDetails.imgdetails2} style={{ width: "100%", marginTop: "-55px", height: "350px", zIndex: "-1" }} />
+                        </div>
 
                     </Carousel>
                 </Col>
 
-                <Col xs={{ span: 24 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", margin: "30px 20px", zIndex: "99999" }}>
-                        <Link to='/layout'>   <img src="./image/backBoxed.png" style={{ cursor: "pointer" }} /></Link>
-                        <img src="./image/optionBoxed.png" />
-                    </div>
-                    <img src={productDetails.img} width="100%" height="320px" style={{ position: "absolute", top: "0px", zIndex: "-5" }} />
-                </Col>
+                {/* end carousel part */}
 
-
-                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ display: "flex", justifyContent: "space-between", marginTop: "250px" }}>
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
                     <div>
                         <p className="slamon-style"> {productDetails.name} </p>
                         <p className="neutious">The Nautilus</p>
@@ -75,6 +102,8 @@ const Card = (props) => {
                     <p className="not-odit">Non odit iusto delectus maxime sit placeat voluptatum dolorem. Dolores quos rerum iusto.Beatae totam ab veritatis aliquid tenetur qui ut. Quia ut dolorum enim et. Exercitationem occaecati eum est ex qui harum aliquam.</p>
 
                 </Col>
+
+                {/* end product description */}
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "50px" }} >
                     <Row>
@@ -98,13 +127,13 @@ const Card = (props) => {
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "-30px", textAlign: "right" }}>
 
                     <p className="reco-style">SUB TOTAL</p>
-                    <p className="price-style">$ {productDetails.price}</p>
+                    <p className="price-style">$ {subTotalPrice}.00</p>
 
                 </Col>
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "-10px", marginBottom: "10px" }} >
-                    <div className="register-button">
-                        ADD TO BASKET
+                    <div className="register-button" >
+                     <p onClick={()=>onAdd(productDetails)}>  ADD TO BASKET</p>  
                     </div>
                 </Col>
             </Row>
