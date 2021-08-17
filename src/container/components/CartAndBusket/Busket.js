@@ -2,14 +2,13 @@ import React from 'react';
 import './CartAndBusket.css'
 import { Row, Col } from 'antd';
 import {Link} from 'react-router-dom'
-import useGlobal  from '../../../store'
+import {useGlobalState,setTotal,setName} from '../../../store'
 
 
 const Busket = (props) => {
-    const [globalState, globalActions] = useGlobal();
-
-    console.log(globalState.total,'total')
-
+    const [total, setTotal] = useGlobalState('total');
+    const [names, setNames] = useGlobalState('names');
+    console.log(total,'total.....')
     return (
         <div className="common-top-margin">
 
@@ -23,8 +22,8 @@ const Busket = (props) => {
                         <img src='./image/egg.png' width="80px" height="80px" />
                     </div>
                     <div style={{ flexGrow: "10", marginTop: "2px" }}>
-                        <p className="name-style"> Egg Salad</p>
-                        <p className="pric-style">$ 10.00</p>
+                        <p className="name-style"> {names}</p>
+                        <p className="pric-style">{total}</p>
                     </div>
                     <div style={{ flexGrow: "4", textAlign: "right", marginTop: "2px" }}>
                         <p>  <img src="./image/deleteIcon.png" alt="erron" width="22px" height="22px" /> </p>

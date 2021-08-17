@@ -1,13 +1,21 @@
-// import React from 'react';
-// import globalHook from 'use-global-hook';
+  
+import { createGlobalState } from 'react-hooks-global-state';
+
+const { setGlobalState, useGlobalState } = createGlobalState({
+  total: 0,
+  names:''
+ 
+});
+
+export const setTotal = () => {
+  setGlobalState('total', (v) => v);
+  
+};
+
+export const setName = () =>{
+    setGlobalState('names', (v) => v);
+}
 
 
-// import * as actions from '../actions';
 
-// export const initialState = {
-//   product: null,
-//   total:0.0
-// }
-// const useGlobal = globalHook(React, initialState, actions);
-
-// export default useGlobal;
+export { useGlobalState };

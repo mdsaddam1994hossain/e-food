@@ -1,9 +1,8 @@
 import React from 'react';
 import './CheckOut.css';
 import { Row, Col } from 'antd';
-
-
 const CheckOut = (props) => {
+
     return (
         <div className="common-top-margin">
 

@@ -1,25 +1,25 @@
 import React from 'react';
 import './Profile.css'
 import { Row, Col, Input } from 'antd';
-import { Link,Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const AccountAndProfile = (props) => {
     return (
         <div className="common-top-margin">
 
             <Row>
-                <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }}>
-                   <img src="./image/vector8.png" onClick={()=> props.setDisplay(true)} style={{cursor:"pointer"}} /> 
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }}>
+                    <img src="./image/vector8.png" onClick={() => props.setDisplay(true)} style={{ cursor: "pointer" }} />
                 </Col>
-                <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "50px" }}>
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "50px" }}>
                     <p className="acc-and-pro"> ACCOUNT AND PROFILE</p>
                 </Col>
-                <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "-10px", display: "flex" }}>
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "-10px", display: "flex" }}>
                     <p className="delete-icon"> <img src="./image/deleteIcon.png" /> </p>
                     <p className="delete-text" >Delete Account </p>
 
                 </Col>
-                <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "200px" }} >
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "200px" }} >
                     <Row>
                         <Col style={{ width: "45%", marginTop: "-30px", marginRight: "5%" }}>
                             <p className="common-text">FIRST NAME</p>
@@ -39,7 +39,7 @@ const AccountAndProfile = (props) => {
                         </Col>
                     </Row>
                 </Col>
-                <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "3 0px" }}>
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "3 0px" }}>
                     <p className="common-text">EMAIL</p>
 
                     <div className="email-input" >
@@ -47,7 +47,7 @@ const AccountAndProfile = (props) => {
                     </div>
 
                 </Col>
-                <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "30px" }}>
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "30px" }}>
                     <div className="sub-profile">
 
                         <p style={{ flexGrow: "1" }}> <img src='./image/vector21.png' /></p>
@@ -58,7 +58,7 @@ const AccountAndProfile = (props) => {
 
                 </Col>
 
-                <Col xs={{offset:2,span:20}} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "30px" }}>
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "30px" }}>
                     <div className="checkOut">
                         UPDATE
                     </div>

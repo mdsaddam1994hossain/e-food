@@ -1,28 +1,50 @@
 import React, { useState, useEffect } from 'react';
+import {useGlobalState,setTotal,setName} from '../../../store'
 import './CartAndBusket.css'
 import { Row, Col, Carousel } from 'antd';
 import ProductData from '../../../ProductData'
 import { useParams, Link } from 'react-router-dom';
 
-// import useGlobal  from '../../../store'
+// import { createContext } from 'react';
+
+
+
+// const initialState = {
+//     counter: 0,
+//   };
+  
+//   const actions = {
+//     addToCounter: (store, amount) => {
+//       const newCounterValue = store.state.counter + amount;
+//       store.setState({ counter: newCounterValue });
+//     },
+//   };
+
+//   const useGlobal = globalHook(initialState, actions);
+
+// export const context = createContext();
 
 
 const Card = (props) => {
+
+ 
 
 
     const productDetails = props.location.state || {};
     const [numberOfProduct, setNumberOfProduct] = useState(1);
     const [subTotalPrice, setSubTotalPrice] = useState(parseFloat(productDetails.price));
-    // const [globalState, globalActions] = useGlobal();
+    const [total, setTotal] = useGlobalState('total');
+    const [names, setName] = useGlobalState('names');
     const [basketItems, setBasketItems] = useState([]);
 
+    const [initialState,setInitialState]= useState(basketItems);
 
     const handalIncreemnt = () => {
         setNumberOfProduct((prev) => prev + 1)
         if (subTotalPrice) {
             let subtotal = subTotalPrice + parseFloat(productDetails.price)
             setSubTotalPrice(subtotal)
-            // globalActions.setTotal(subtotal)
+            setTotal(subtotal)
         }
     }
 
@@ -32,18 +54,26 @@ const Card = (props) => {
         if (subTotalPrice) {
             let subtotal = subTotalPrice - parseFloat(productDetails.price)
             setSubTotalPrice(subtotal)
-            // globalActions.setTotal(subtotal)
+             setTotal(subtotal)
+        
         }
     }
 
     // Add to basket button function
 
-    const onAdd = (product) =>{
-        console.log(product.id,product.name,product.price,product.img);
+
+
+    const onAdd = () =>{
+        
+
+    //     const exits = 
+        setBasketItems([...basketItems,{id:productDetails.id,name:productDetails.name,totalPrice:subTotalPrice,quantity:numberOfProduct}])
+        setInitialState(basketItems)
+    //    console.log(product.id,product.name,product.price,product.img);
+       setName(productDetails.name)
     }
 
-   
-
+    console.log(basketItems)
     return (
 
         <div >
@@ -133,7 +163,7 @@ const Card = (props) => {
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "-10px", marginBottom: "10px" }} >
                     <div className="register-button" >
-                     <p onClick={()=>onAdd(productDetails)}>  ADD TO BASKET</p>  
+                     <p onClick={()=>onAdd()}>  ADD TO BASKET</p>  
                     </div>
                 </Col>
             </Row>

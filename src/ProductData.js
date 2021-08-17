@@ -18,7 +18,16 @@ const ProductData ={
             "price" : 15.00,
             "subImage" : "./image/boxed.png",
             "age" : "25 years"
-        }
+        },
+        {   "id" : "3",
+        "img" : "./image/pizza.png" ,
+        "imgdetails" :"./image/egg.png",
+        "imgdetails2" :"./image/pizza.png",
+        "name": "Grilled Tickka",
+        "price" : 25.00,
+        "subImage" : "./image/boxed.png",
+        "age" : "25 years"
+    }
         
         
     ]

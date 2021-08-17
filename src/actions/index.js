@@ -5,7 +5,6 @@
 //     store.setState({initialState : product});
 //   }
 
-//   export const  setTotal = (store, data) => {
-//     const total = data
-//     store.setState({ total: total});
-//   }
+  // export const  setTotal = (store, value) => {
+  //   store.setState({ total: value});
+  // }

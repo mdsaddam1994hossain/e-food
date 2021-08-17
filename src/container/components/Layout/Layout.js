@@ -9,13 +9,10 @@ import Liked from './../Liked/Liked';
 import CheckOut from './../CheckOut/CheckOut';
 import Card from '../CartAndBusket/Card';
 import AccountAndProfile from './../Profile/AccountAndProfile';
+import { isMobile } from 'is-mobile';
 
-import {
-    BrowserView,
-    MobileView,
-    isBrowser,
-    isMobile
-  } from "react-device-detect";
+
+
 
 
 
@@ -25,7 +22,7 @@ import {
 const Layout = () => {
 
 
-// console.log(isMobile,'/////////')
+console.log(isMobile)
 
     const [selectedTab, setSelectedTab] = useState(null)
     const [fullScreen, setFullScreen] = useState(true)

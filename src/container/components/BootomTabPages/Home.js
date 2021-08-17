@@ -80,12 +80,12 @@ const {products} = ProductData;
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "20px" }} >
                    
-                        <Row>
+                        <Row >
 
                             {products.map((product, index) => {
                                 return (
                                    
-                                    <Col span={12 } >
+                                    <Col span={8} style={{display:"flex",justifyContent:"space-between"}}>
                                         {console.log(product.img,'///////')}
                                          {/* <Link to={`/card?id=${product.id}&name=${product.name}&price=${product.price}&imgLink=${product.img}`}> */}
                                         
@@ -93,9 +93,9 @@ const {products} = ProductData;
                                             onClick ={()=>handaleClick(product)}
                                             key={index}
                                             hoverable
-                                            style={{ width: "100%", borderRadius: "10px" }}
+                                            style={{ width: "98%", borderRadius: "10px" }}
                                             cover={<img alt="example" src={product.img} height="150px" style={{ borderRadius: "10px" }} />}
-
+         
                                         >
                                             <img src="./image/loveVector.png" className="loveVector" />
 
@@ -107,8 +107,7 @@ const {products} = ProductData;
                                             </div>
                                         </Card>
                                         {/* </Link> */}
-                                    </Col>
-                                    
+                                    </Col>   
                                 )
                             })}
 

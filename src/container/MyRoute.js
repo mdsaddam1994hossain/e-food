@@ -91,7 +91,7 @@ const MyRoute = () => {
             <Route  path='/paymentMethod' component={PaymentMethod} />
             <Route  path='/addNewCard' component={AddNewCard} />
 
-            {/* <Route path="/product" component={Test} /> */}
+            <Route path="/test" component={Test} />
             
            
             
