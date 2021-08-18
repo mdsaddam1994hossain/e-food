@@ -14,7 +14,26 @@ const Card = (props) => {
     const [subTotalPrice, setSubTotalPrice] = useState(parseFloat(productDetails.price));
     const [basketItems, setBasketItems] = useGlobalState('basketItems');
     const [numberOfCard, setNumberOfCard] = useGlobalState('numberOfCard');
-     
+
+    const findExistProduct =(id)=>{
+        const sTotal = basketItems.find(x=>x.id == id);
+        if(sTotal){
+            console.log('previous subTotal=',sTotal.subTotalPrice,'previous quantity=',sTotal.quantity);
+            // setSubTotalPrice(sTotal.subTotalPrice)
+            // setNumberOfProduct(sTotal.quantity)
+        }
+    }
+
+    findExistProduct(productDetails.id);
+
+    // if(basketItems.find(x=>x.id==productDetails.id)){
+    //    console.log(basketItems.find(x=>x.id ==productDetails.id));
+    // }
+
+    
+
+    
+
     const numOfCard = basketItems.length;
        console.log(numOfCard,'num of card')
        console.log(numberOfCard,'number of card')
@@ -48,6 +67,7 @@ const Card = (props) => {
         setNumberOfCard(numOfCard)
 
         const exist = basketItems.find((x) => x.id === product.id);
+        
         if (exist) {
             setBasketItems(
                 basketItems.map((x) =>

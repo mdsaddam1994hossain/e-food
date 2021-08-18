@@ -86,7 +86,7 @@ const {products} = ProductData;
                             {products.map((product, index) => {
                                 return (
                                    
-                                    <Col span={8} style={{display:"flex",justifyContent:"space-between"}}>
+                                    <Col span={12} style={{display:"flex",justifyContent:"space-between"}}>
                                         {console.log(product.img,'///////')}
                                          {/* <Link to={`/card?id=${product.id}&name=${product.name}&price=${product.price}&imgLink=${product.img}`}> */}
                                         
