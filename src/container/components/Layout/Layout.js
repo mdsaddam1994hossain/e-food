@@ -1,5 +1,6 @@
 import React, { Children, useState } from 'react';
 import { TabBar } from 'antd-mobile';
+import { useGlobalState } from '../../../store'
 import { Row, Col } from 'antd';
 import Home from './../BootomTabPages/Home';
 import Search from '../Search/Search';
@@ -9,51 +10,25 @@ import Liked from './../Liked/Liked';
 import CheckOut from './../CheckOut/CheckOut';
 import Card from '../CartAndBusket/Card';
 import AccountAndProfile from './../Profile/AccountAndProfile';
-import { isMobile } from 'is-mobile';
-
-
-
-
-
-
-
-
+// import { isMobile } from 'is-mobile';
 
 const Layout = () => {
 
 
-console.log(isMobile)
-
+// console.log(isMobile,'////////////////')
+    
     const [selectedTab, setSelectedTab] = useState(null)
     const [fullScreen, setFullScreen] = useState(true)
     const [hidden, setHidden] = useState(false)
     const [display,setDisplay] = useState(true);
-    
-//    function bottomtab(){
-//     return(
-//         <div>
-//             { mobile ? setHidden(true) : setHidden(false)  }
-//             <Home />
-//         </div> 
-//     ) 
-//   }
+    const [numberOfCard, setNumberOfCard] = useGlobalState('numberOfCard');
 
-
-
-    //   const  renderContent = () => {
-    //         if (isMobile) {
-    //             return <div> <Home /></div>
-    //         }
-    //         return <div> <Profile /> </div>
-    //     }
-
-   
-
+  
     return (
 
         
         <div className="common-top-margin">
-           
+             
 
                     <div style={fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
                         <TabBar
@@ -140,6 +115,7 @@ console.log(isMobile)
                                
                                 key="Search"
                                 selected={selectedTab === 'busket-tab'}
+                                badge={numberOfCard}
                                 onPress={() => {
                                     setSelectedTab('busket-tab')
                                 }}
@@ -148,7 +124,7 @@ console.log(isMobile)
 
 
                                
-                                {display ? <Busket  setDisplay={setDisplay}/> : <CheckOut  setDisplay={setDisplay}/>   }
+                                <Busket  /> 
                               
                                  {/* <MyAddress /> */}
                               

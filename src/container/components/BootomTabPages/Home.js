@@ -19,6 +19,7 @@ const Home = (props) => {
             pathname : '/product',
             state  : data
         });
+
     }
 
 const {products} = ProductData;
@@ -31,7 +32,7 @@ const {products} = ProductData;
         <div className="common-top-margin" style={{ background: "#F7F7F7" }}>
 
             <Row>
-                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} >
+                <Col xs={{ offset: 2,span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} >
                     <div className="hello-style">
                         <p className="jhone">Hello!<span style={{ color: "#2FDBBC" }}> Jhon</span> </p>
                         <div style={{ display: "flex", marginTop: "2px" }}>

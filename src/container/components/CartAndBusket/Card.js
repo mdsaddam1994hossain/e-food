@@ -1,61 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import {useGlobalState,setTotal,setName} from '../../../store'
+import { useGlobalState } from '../../../store'
 import './CartAndBusket.css'
 import { Row, Col, Carousel } from 'antd';
 import ProductData from '../../../ProductData'
-import { useParams, Link } from 'react-router-dom';
-
-// import { createContext } from 'react';
-
-
-
-// const initialState = {
-//     counter: 0,
-//   };
-  
-//   const actions = {
-//     addToCounter: (store, amount) => {
-//       const newCounterValue = store.state.counter + amount;
-//       store.setState({ counter: newCounterValue });
-//     },
-//   };
-
-//   const useGlobal = globalHook(initialState, actions);
-
-// export const context = createContext();
+import { Link } from 'react-router-dom';
 
 
 const Card = (props) => {
-
- 
 
 
     const productDetails = props.location.state || {};
     const [numberOfProduct, setNumberOfProduct] = useState(1);
     const [subTotalPrice, setSubTotalPrice] = useState(parseFloat(productDetails.price));
-    const [total, setTotal] = useGlobalState('total');
-    const [names, setName] = useGlobalState('names');
-    const [basketItems, setBasketItems] = useState([]);
-
-    const [initialState,setInitialState]= useState(basketItems);
-
+    const [basketItems, setBasketItems] = useGlobalState('basketItems');
+    const [numberOfCard, setNumberOfCard] = useGlobalState('numberOfCard');
+     
+    const numOfCard = basketItems.length;
+       console.log(numOfCard,'num of card')
+       console.log(numberOfCard,'number of card')
+ 
     const handalIncreemnt = () => {
         setNumberOfProduct((prev) => prev + 1)
         if (subTotalPrice) {
             let subtotal = subTotalPrice + parseFloat(productDetails.price)
             setSubTotalPrice(subtotal)
-            setTotal(subtotal)
+
         }
     }
 
     const handalDecreemnt = () => {
-        setNumberOfProduct(numberOfProduct - 1);
 
+        setNumberOfProduct(numberOfProduct - 1);
         if (subTotalPrice) {
             let subtotal = subTotalPrice - parseFloat(productDetails.price)
             setSubTotalPrice(subtotal)
-             setTotal(subtotal)
-        
+
+
         }
     }
 
@@ -63,17 +43,25 @@ const Card = (props) => {
 
 
 
-    const onAdd = () =>{
-        
+    const onAdd = (product) => {
 
-    //     const exits = 
-        setBasketItems([...basketItems,{id:productDetails.id,name:productDetails.name,totalPrice:subTotalPrice,quantity:numberOfProduct}])
-        setInitialState(basketItems)
-    //    console.log(product.id,product.name,product.price,product.img);
-       setName(productDetails.name)
+        setNumberOfCard(numOfCard)
+
+        const exist = basketItems.find((x) => x.id === product.id);
+        if (exist) {
+            setBasketItems(
+                basketItems.map((x) =>
+                    x.id === product.id ? { ...exist, quantity: exist.quantity + numberOfProduct, subTotalPrice: exist.subTotalPrice + productDetails.price*numberOfProduct } : x
+                )
+            );
+
+        } else {
+
+            setBasketItems([...basketItems, { id: productDetails.id, name: productDetails.name, subTotalPrice: subTotalPrice, quantity: numberOfProduct, imgs: productDetails.img }])
+        }
+ 
     }
 
-    console.log(basketItems)
     return (
 
         <div >
@@ -163,7 +151,7 @@ const Card = (props) => {
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "-10px", marginBottom: "10px" }} >
                     <div className="register-button" >
-                     <p onClick={()=>onAdd()}>  ADD TO BASKET</p>  
+                        <p onClick={(e) => onAdd(productDetails)}>  ADD TO BASKET</p>
                     </div>
                 </Col>
             </Row>
