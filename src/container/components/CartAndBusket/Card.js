@@ -3,7 +3,7 @@ import { useGlobalState } from '../../../store'
 import './CartAndBusket.css'
 import { Row, Col, Carousel } from 'antd';
 import ProductData from '../../../ProductData'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 
 const Card = (props) => {
@@ -15,29 +15,23 @@ const Card = (props) => {
     const [basketItems, setBasketItems] = useGlobalState('basketItems');
     const [numberOfCard, setNumberOfCard] = useGlobalState('numberOfCard');
 
-    const findExistProduct =(id)=>{
-        const sTotal = basketItems.find(x=>x.id == id);
-        if(sTotal){
-            console.log('previous subTotal=',sTotal.subTotalPrice,'previous quantity=',sTotal.quantity);
-            // setSubTotalPrice(sTotal.subTotalPrice)
-            // setNumberOfProduct(sTotal.quantity)
-        }
-    }
+    // const findExistProduct =(id)=>{
+    //     const sTotal = basketItems.find(x=>x.id == id);
+    //     if(sTotal){
+    //         console.log('previous subTotal=',sTotal.subTotalPrice,'previous quantity=',sTotal.quantity);
+    //         // setSubTotalPrice(sTotal.subTotalPrice)
+    //         // setNumberOfProduct(sTotal.quantity)
+    //         alert('this product alredy ordered');
 
-    findExistProduct(productDetails.id);
-
-    // if(basketItems.find(x=>x.id==productDetails.id)){
-    //    console.log(basketItems.find(x=>x.id ==productDetails.id));
+    //     }
     // }
 
-    
+    // useEffect(() => {
 
-    
+    //     findExistProduct(productDetails.id);
 
-    const numOfCard = basketItems.length;
-       console.log(numOfCard,'num of card')
-       console.log(numberOfCard,'number of card')
- 
+
+
     const handalIncreemnt = () => {
         setNumberOfProduct((prev) => prev + 1)
         if (subTotalPrice) {
@@ -58,29 +52,62 @@ const Card = (props) => {
         }
     }
 
-    // Add to basket button function
+    // Add to basket button functions
 
-
-
-    const onAdd = (product) => {
-
-        setNumberOfCard(numOfCard)
+    const addToBasket = (product) => {
 
         const exist = basketItems.find((x) => x.id === product.id);
-        
         if (exist) {
-            setBasketItems(
-                basketItems.map((x) =>
-                    x.id === product.id ? { ...exist, quantity: exist.quantity + numberOfProduct, subTotalPrice: exist.subTotalPrice + productDetails.price*numberOfProduct } : x
-                )
-            );
 
-        } else {
-
-            setBasketItems([...basketItems, { id: productDetails.id, name: productDetails.name, subTotalPrice: subTotalPrice, quantity: numberOfProduct, imgs: productDetails.img }])
+            alert('this product alredy ordered');
+            return;
+        }else{
+            setBasketItems([...basketItems, { id: productDetails.id, name: productDetails.name, subTotalPrice: subTotalPrice, quantity: numberOfProduct, imgs: productDetails.img,perUnitPrice:productDetails.price }])
+             alert('Order Accept ');
         }
- 
+        
     }
+
+
+   // quantity increment and deccrement functions
+
+
+    // const onAdd = (id) => {
+
+    //     const exist = basketItems.find((x) => x.id === id);
+
+    //     if (exist) {
+    //         setBasketItems(
+    //             basketItems.map((x) =>
+    //                 x.id === id ? { ...exist, quantity: exist.quantity + numberOfProduct, subTotalPrice: exist.subTotalPrice + productDetails.price * numberOfProduct } : x
+    //             )
+    //         );
+
+    //     } else {
+
+    //         setBasketItems([...basketItems, { id: productDetails.id, name: productDetails.name, subTotalPrice: subTotalPrice, quantity: numberOfProduct, imgs: productDetails.img }])
+    //     }
+    // }
+
+
+    // const onRemove = (product) => {
+
+    //     const exist = basketItems.find((x) => x.id === product.id);
+
+    //     if (exist) {
+    //         setBasketItems(
+    //             basketItems.map((x) =>
+    //                 x.id === product.id ? { ...exist, quantity: exist.quantity - numberOfProduct, subTotalPrice: exist.subTotalPrice - productDetails.price * numberOfProduct } : x
+    //             )
+    //         );
+
+    //     } else {
+
+    //         setBasketItems([...basketItems, { id: productDetails.id, name: productDetails.name, subTotalPrice: subTotalPrice, quantity: numberOfProduct, imgs: productDetails.img }])
+    //     }
+    // }
+
+
 
     return (
 
@@ -171,7 +198,7 @@ const Card = (props) => {
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "-10px", marginBottom: "10px" }} >
                     <div className="register-button" >
-                        <p onClick={(e) => onAdd(productDetails)}>  ADD TO BASKET</p>
+                        <p onClick={(e) => addToBasket(productDetails)}>  ADD TO BASKET</p>
                     </div>
                 </Col>
             </Row>

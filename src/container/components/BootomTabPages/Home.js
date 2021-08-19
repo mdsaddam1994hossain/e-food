@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './BootmTab.css'
+import { useGlobalState } from '../../../store'
 import { Row, Col, Card, Input, Space } from 'antd';
 import ProductData from '../../../ProductData'
 import CompanyData from '../../../CompanyData.json'
@@ -13,26 +14,34 @@ const { Meta } = Card;
 
 const Home = (props) => {
 
+
+    const [basketItems, setBasketItems] = useGlobalState('basketItems');
+
     const history = useHistory();
-    const handaleClick = (data) =>{
-        history.push({
-            pathname : '/product',
-            state  : data
-        });
+    const handaleClick = (data) => {
+
+        const existProduct = basketItems.find(x => x.id == data.id);
+        if (existProduct) {
+
+            alert('this product alredy ordered');
+            return;
+        } else {
+
+            history.push({
+                pathname: '/product',
+                state: data
+            });
+        }
 
     }
 
-const {products} = ProductData;
-
-    const [selectedProduct, setSelectedProduct] = useState({});
-
-    console.log("selectedproduct===", selectedProduct)
+    const { products } = ProductData;
 
     return (
         <div className="common-top-margin" style={{ background: "#F7F7F7" }}>
 
             <Row>
-                <Col xs={{ offset: 2,span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} >
+                <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} >
                     <div className="hello-style">
                         <p className="jhone">Hello!<span style={{ color: "#2FDBBC" }}> Jhon</span> </p>
                         <div style={{ display: "flex", marginTop: "2px" }}>
@@ -80,40 +89,40 @@ const {products} = ProductData;
                 </Col>
 
                 <Col xs={{ offset: 2, span: 20 }} sm={{ offset: 4, span: 16 }} md={{ offset: 6, span: 12 }} lg={{ offset: 8, span: 8 }} style={{ marginTop: "20px" }} >
-                   
-                        <Row >
 
-                            {products.map((product, index) => {
-                                return (
-                                   
-                                    <Col span={12} style={{display:"flex",justifyContent:"space-between"}}>
-                                        {console.log(product.img,'///////')}
-                                         {/* <Link to={`/card?id=${product.id}&name=${product.name}&price=${product.price}&imgLink=${product.img}`}> */}
-                                        
-                                        <Card
-                                            onClick ={()=>handaleClick(product)}
-                                            key={index}
-                                            hoverable
-                                            style={{ width: "98%", borderRadius: "10px" }}
-                                            cover={<img alt="example" src={product.img} height="150px" style={{ borderRadius: "10px" }} />}
-         
-                                        >
-                                            <img src="./image/loveVector.png" className="loveVector" />
+                    <Row >
 
-                                            <Meta title={product.name} style={{ position: "relative", top: "-15px", left: "-10px", fontFamily: "Poppins", color: "#2D2D2D", fontSize: "14px", lineHeight: "21px" }} />
+                        {products.map((product, index) => {
+                            return (
 
-                                            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-                                                <p className="price-style">${product.price}</p>
-                                                <img src={product.subImage} style={{ width: "22px", height: "22px", marginRight: "-10px" }} />
-                                            </div>
-                                        </Card>
-                                        {/* </Link> */}
-                                    </Col>   
-                                )
-                            })}
+                                <Col span={12} style={{ display: "flex", justifyContent: "space-between" }}>
+                                    {console.log(product.img, '///////')}
+                                    {/* <Link to={`/card?id=${product.id}&name=${product.name}&price=${product.price}&imgLink=${product.img}`}> */}
 
-                        </Row>
-                   
+                                    <Card
+                                        onClick={() => handaleClick(product)}
+                                        key={index}
+                                        hoverable
+                                        style={{ width: "98%", borderRadius: "10px" }}
+                                        cover={<img alt="example" src={product.img} height="150px" style={{ borderRadius: "10px" }} />}
+
+                                    >
+                                        <img src="./image/loveVector.png" className="loveVector" />
+
+                                        <Meta title={product.name} style={{ position: "relative", top: "-15px", left: "-10px", fontFamily: "Poppins", color: "#2D2D2D", fontSize: "14px", lineHeight: "21px" }} />
+
+                                        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                                            <p className="price-style">${product.price}</p>
+                                            <img src={product.subImage} style={{ width: "22px", height: "22px", marginRight: "-10px" }} />
+                                        </div>
+                                    </Card>
+                                    {/* </Link> */}
+                                </Col>
+                            )
+                        })}
+
+                    </Row>
+
 
 
                 </Col>

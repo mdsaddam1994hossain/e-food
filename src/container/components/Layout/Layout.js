@@ -21,6 +21,7 @@ const Layout = () => {
     const [fullScreen, setFullScreen] = useState(true)
     const [hidden, setHidden] = useState(false)
     const [display,setDisplay] = useState(true);
+    const [basketItems, setBasketItems] = useGlobalState('basketItems');
     const [numberOfCard, setNumberOfCard] = useGlobalState('numberOfCard');
 
   
@@ -115,7 +116,7 @@ const Layout = () => {
                                
                                 key="Search"
                                 selected={selectedTab === 'busket-tab'}
-                                badge={numberOfCard}
+                                badge={basketItems.length}
                                 onPress={() => {
                                     setSelectedTab('busket-tab')
                                 }}

@@ -1,6 +1,5 @@
   
     import { createGlobalState } from 'react-hooks-global-state';
-import { Card } from 'antd';
 
     const { setGlobalState, useGlobalState } = createGlobalState({
       total: 0,
